@@ -2,14 +2,57 @@
 
     package="com.phone.icall">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+    <!-- 访问互联网权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <application
+        android:name="com.phone.icall.TAApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".activity.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ThinkAndroidMainActivity" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidCacheActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidDBActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidImageCacheActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidMvcActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidHttpActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidDwonLoadActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidMultiThreadDwonLoadActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidSimpleDwonLoadActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidSimpleTwoDwonLoadActivtiy" >
+        </activity>
+        <activity android:name=".activity.ThinkAndroidOtherActivtiy" >
+        </activity>
+
+        <receiver android:name="com.ta.util.netstate.TANetworkStateReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="ta.android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
+
 
 </manifest>
