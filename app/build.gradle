@@ -1,20 +1,40 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "27.0.3"
+    compileSdkVersion project.ext.compileSdk
+    buildToolsVersion project.ext.buildTools
+
     defaultConfig {
-        applicationId "com.phone.icall"
-        minSdkVersion 21
-        targetSdkVersion 25
+        applicationId "com.icall.free"
+        minSdkVersion project.ext.minSdk
+        targetSdkVersion project.ext.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    dependencies {
+        implementation 'com.facebook.android:account-kit-sdk:4.+'
+        implementation "com.android.support:support-v4:25.3.1"
+        implementation 'com.google.android.gms:play-services-base:11.8.0'
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi', 'armeabi-v7a', 'x86'
+            universalApk true
         }
     }
 }

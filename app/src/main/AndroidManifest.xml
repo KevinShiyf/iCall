@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="com.phone.icall">
+    package="com.icall.free">
 
     <!-- 访问互联网权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,49 +9,75 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
-        android:name="com.phone.icall.TAApplication"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name" >
+        android:name="com.ta.TAApplication"
+        android:icon="@mipmap/logo"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:label="@string/app_name">
         <activity
             android:name=".activity.SplashActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ThinkAndroidMainActivity" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidCacheActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidDBActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidImageCacheActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidMvcActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidHttpActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidDwonLoadActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidMultiThreadDwonLoadActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidSimpleDwonLoadActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidSimpleTwoDwonLoadActivtiy" >
-        </activity>
-        <activity android:name=".activity.ThinkAndroidOtherActivtiy" >
-        </activity>
+        <activity android:name=".activity.FaceBookLoginActivity"></activity>
+        <activity android:name=".activity.ErrorActivity"></activity>
+        <activity android:name=".activity.TokenActivity"></activity>
+        <activity android:name=".activity.LoginActivity"></activity>
 
-        <receiver android:name="com.ta.util.netstate.TANetworkStateReceiver" >
+        <activity android:name=".activity.demo.ThinkAndroidMainActivity"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidCacheActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidDBActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidImageCacheActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidMvcActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidHttpActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidDwonLoadActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidMultiThreadDwonLoadActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidSimpleDwonLoadActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidSimpleTwoDwonLoadActivtiy"></activity>
+        <activity android:name=".activity.demo.ThinkAndroidOtherActivtiy"></activity>
+
+
+
+        <receiver android:name="com.icall.free.util.netstate.TANetworkStateReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="ta.android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+
+        <activity android:name="com.facebook.accountkit.ui.AccountKitEmailRedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/ak_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id"
+            />
+        <meta-data
+            android:name="com.facebook.accountkit.ClientToken"
+            android:value="@string/client_token"
+            />
+
+        <meta-data
+            android:name="com.facebook.accountkit.ApplicationName"
+            android:value="@string/app_name"
+            />
     </application>
 
 

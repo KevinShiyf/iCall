@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, TestAndroidActivity!</string>
-    <string name="app_name">ThinkAndroid Demo</string>
+    <string name="app_name">iCall</string>
     <string name="app_describe">非常感谢您们的支持！我们共同学习！                     网址：http://www.thinkandroid.cn。qq群：169415162</string>
     <!-- activity标题 -->
     <string name="thinkandroid_main_title">ThinkAndroid Main</string>
@@ -41,4 +41,45 @@
     <string name="test_resoperate">测试资源读取</string>
     <string name="test_comparator">测试任意对象比较器</string>
 
+
+    <string name="ak_login_protocol_scheme">ak964234977027033</string>
+    <string name="app_id">197397761131559</string>
+
+    <!--cffab7d11cd2cbf9ee5f82c140bcfcfa-->
+    <!--4ca84018610e6011c64f23689b1039d6-->
+    <string name="client_token">4ca84018610e6011c64f23689b1039d6</string>
+
+    <string name="permissions_get_accounts_title">Read Email Address</string>
+    <string name="permissions_read_phone_state_message">
+        Grant permission to read your phone number from your device to pre-fill.
+    </string>
+    <string name="permissions_get_accounts_message">
+        Grant permission to read your email address from your device to pre-fill.
+    </string>
+    <string name="permissions_read_phone_state_title">Read Phone Number</string>
+    <string name="permissions_receive_sms_message">
+        Grant permission to read your SMS code from your device to pre-fill.
+    </string>
+    <string name="permissions_receive_sms_title">Read SMS Code</string>
+    <string name="na">NA</string>
+    <string name="log_in_email_button">Log In via Email</string>
+    <string name="log_in_phone_button">Log In via Phone</string>
+    <string name="log_out_button">Log Out</string>
+    <string name="error_label">Error</string>
+    <string name="loading_placeholder">Loading&#8230;</string>
+    <string name="user_id_label">Account ID</string>
+    <string name="phone_number_label">Phone Number</string>
+    <string name="email_label">Email</string>
+
+    <string name="signin">SIGN IN</string>
+    <string name="signin_desc">You will get SMS with a confirmation</string>
+    <string name="signin_code_desc">code to this number</string>
+
+    <string name="your_number">Your number</string>
+    <string name="password">password</string>
+    <string name="new_user">I am new user</string>
+
+    <string name="forgot_password">Forgot password?</string>
+    <string name="verify_code_login">Sign in with verify code</string>
+    <string name="agree_use_desc">Agree our Terms of use and Privacy Policy</string>
 </resources>

@@ -11,5 +11,9 @@
     <string name="thinkandroidmultithreaddwonloadactivtiy">ThinkAndroidMultiThreadDwonLoadActivtiy</string>
     <string name="thinkandroidsimpledwonloadactivtiy">ThinkAndroidSimpleDwonLoadActivtiy</string>
     <string name="thinkandroidsimpletwodwonloadactivtiy">ThinkAndroidSimpleTwoDwonLoadActivtiy</string>
-     <string name="thinkandroidotheractivtiy">ThinkAndroidOtherActivtiy</string>
-</resources>
+    <string name="thinkandroidotheractivtiy">ThinkAndroidOtherActivtiy</string>
+
+    <string name="faceBookLoginActivity">FaceBookLoginActivity</string>
+
+    <string name="loginActivity">LoginActivity</string>
+</resources>
