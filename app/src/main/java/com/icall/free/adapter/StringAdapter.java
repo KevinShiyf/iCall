@@ -55,7 +55,7 @@ public class StringAdapter extends BaseAdapter
 		// TODO Auto-generated method stub
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View baseView = inflater.inflate(R.layout.string_cache_item, null);
+		View baseView = inflater.inflate(R.layout.country_code_item, null);
 		final TextView textView = (TextView) baseView
 				.findViewById(R.id.textview);
 		taFileCacheWork.loadFormCache(getItem(position), textView);

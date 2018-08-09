@@ -31,6 +31,8 @@
         <activity android:name=".activity.ErrorActivity"></activity>
         <activity android:name=".activity.TokenActivity"></activity>
         <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.CountryCodeActivity"></activity>
 
         <activity android:name=".activity.demo.ThinkAndroidMainActivity"></activity>
         <activity android:name=".activity.demo.ThinkAndroidCacheActivtiy"></activity>

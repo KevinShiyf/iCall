@@ -29,7 +29,7 @@ public class ImageAdapter extends BaseAdapter
 				DensityUtils.dipTopx(context, 128));
 		TABitmapCallBackHanlder taBitmapCallBackHanlder = new TABitmapCallBackHanlder();
 		taBitmapCallBackHanlder
-				.setLoadingImage(context, R.mipmap.empty_photo);
+				.setLoadingImage(context, R.drawable.empty_photo);
 		imageFetcher = new TABitmapCacheWork(context);
 		imageFetcher.setProcessDataHandler(downloadBitmapFetcher);
 		imageFetcher.setCallBackHandler(taBitmapCallBackHanlder);

@@ -24,21 +24,21 @@ public class TAStringCallBackHandler extends TACallBackHandler<TextView>
 	public void onSuccess(TextView wv, Object data, byte[] buffer)
 	{
 		// TODO Auto-generated method stub
-		super.onSuccess(wv, data, buffer);
-		FrameLayout view = (FrameLayout) wv.getParent();
-		ProgressBar progressBar = (ProgressBar) view
-				.findViewById(R.id.progress);
-		progressBar.setVisibility(View.GONE);
-		String content = new String(buffer);
-		try
-		{
-			content = new String(buffer, "UTF -8");
-		} catch (UnsupportedEncodingException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		wv.setText(TAStringUtils.delHTMLTag(content));
+//		super.onSuccess(wv, data, buffer);
+//		FrameLayout view = (FrameLayout) wv.getParent();
+//		ProgressBar progressBar = (ProgressBar) view
+//				.findViewById(R.id.progress);
+//		progressBar.setVisibility(View.GONE);
+//		String content = new String(buffer);
+//		try
+//		{
+//			content = new String(buffer, "UTF -8");
+//		} catch (UnsupportedEncodingException e)
+//		{
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		wv.setText(TAStringUtils.delHTMLTag(content));
 
 	}
 

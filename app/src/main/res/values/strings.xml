@@ -71,6 +71,10 @@
     <string name="phone_number_label">Phone Number</string>
     <string name="email_label">Email</string>
 
+
+    <string name="send_code">SEND CODE</string>
+    <string name="input_code_desc">Please input code below</string>
+
     <string name="signin">SIGN IN</string>
     <string name="signin_desc">You will get SMS with a confirmation</string>
     <string name="signin_code_desc">code to this number</string>
@@ -82,4 +86,35 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="verify_code_login">Sign in with verify code</string>
     <string name="agree_use_desc">Agree our Terms of use and Privacy Policy</string>
+
+    <!-- 导航条 -->
+    <string name="a_to_z_JH">#</string>
+    <string name="a_to_z_A">A</string>
+    <string name="a_to_z_B">B</string>
+    <string name="a_to_z_C">C</string>
+    <string name="a_to_z_D">D</string>
+    <string name="a_to_z_E">E</string>
+    <string name="a_to_z_F">F</string>
+    <string name="a_to_z_G">G</string>
+    <string name="a_to_z_H">H</string>
+    <string name="a_to_z_I">I</string>
+    <string name="a_to_z_J">J</string>
+    <string name="a_to_z_K">K</string>
+    <string name="a_to_z_L">L</string>
+    <string name="a_to_z_M">M</string>
+    <string name="a_to_z_N">N</string>
+    <string name="a_to_z_O">O</string>
+    <string name="a_to_z_P">P</string>
+    <string name="a_to_z_Q">Q</string>
+    <string name="a_to_z_R">R</string>
+    <string name="a_to_z_S">S</string>
+    <string name="a_to_z_T">T</string>
+    <string name="a_to_z_U">U</string>
+    <string name="a_to_z_V">V</string>
+    <string name="a_to_z_W">W</string>
+    <string name="a_to_z_X">X</string>
+    <string name="a_to_z_Y">Y</string>
+    <string name="a_to_z_Z">Z</string>
+    <string name="search">Search</string>
+    <string name="select_code">Select Country or Areas</string>
 </resources>

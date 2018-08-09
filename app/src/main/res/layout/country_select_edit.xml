@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/vs_contact_cts_keyword"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/contact_search_bg"
+        android:cursorVisible="true"
+        android:drawableLeft="@drawable/search_icon"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="@string/search"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textColorHint="#CCCCCC"
+        android:textSize="14sp" />
+
+    <!--</FrameLayout> -->
+
+</LinearLayout>

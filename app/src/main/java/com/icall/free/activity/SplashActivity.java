@@ -14,11 +14,15 @@ import com.icall.free.activity.demo.ThinkAndroidOtherActivtiy;
 import com.icall.free.activity.demo.ThinkAndroidSimpleDwonLoadActivtiy;
 import com.icall.free.activity.demo.ThinkAndroidSimpleTwoDwonLoadActivtiy;
 import com.icall.free.command.TestMVCCommand;
+import com.icall.free.util.CodeProperties;
 import com.ta.TAApplication;
+import com.ta.annotation.TAInjectView;
 import com.ta.util.cache.TAFileCache;
 import com.ta.util.cache.TAFileCache.TACacheParams;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * @author 白猫
@@ -28,13 +32,22 @@ import android.os.Bundle;
  * @Description: 用户其启动界面时候的一个启动页面完成一些初始化工作
  * @date 2013-5-6
  */
-public class SplashActivity extends ThinkAndroidBaseActivity {
+public class SplashActivity extends ThinkAndroidBaseActivity implements View.OnClickListener {
     private static final String SYSTEMCACHE = "thinkandroid";
 
+    @TAInjectView(id = R.id.facebook_register_btn)
+    Button facebook_register_btn;
+    @TAInjectView(id = R.id.phone_register_btn)
+    Button phone_register_btn;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onAfterOnCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
+        super.onAfterOnCreate(savedInstanceState);
+        setContentView(R.layout.splash);
+        facebook_register_btn.setOnClickListener(this);
+        phone_register_btn.setOnClickListener(this);
+//        CodeProperties.generateUrl();
         // TANetworkStateReceiver.registerNetworkStateReceiver(this);
 //        final View view = View.inflate(this, R.layout.splash, null);
 //        setContentView(view);
@@ -56,7 +69,6 @@ public class SplashActivity extends ThinkAndroidBaseActivity {
 //            public void onAnimationStart(Animation animation) {
 //            }
 //        });
-        startMain();
     }
 
     @Override
@@ -99,8 +111,7 @@ public class SplashActivity extends ThinkAndroidBaseActivity {
                 R.string.thinkandroidsimpletwodwonloadactivtiy,
                 ThinkAndroidSimpleTwoDwonLoadActivtiy.class);
         // 注册activity
-        getTAApplication().registerActivity(
-                R.string.thinkandroiddwonloadactivtiy,
+        getTAApplication().registerActivity(R.string.thinkandroiddwonloadactivtiy,
                 ThinkAndroidDwonLoadActivtiy.class);
         // 注册activity
         getTAApplication().registerActivity(
@@ -115,13 +126,8 @@ public class SplashActivity extends ThinkAndroidBaseActivity {
                 FaceBookLoginActivity.class);
         getTAApplication().registerActivity(R.string.loginActivity,
                 LoginActivity.class);
-
-    }
-
-    @Override
-    protected void onAfterOnCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onAfterOnCreate(savedInstanceState);
+        getTAApplication().registerActivity(R.string.registerActivity,
+                RegisterActivity.class);
     }
 
     private void startMain() {
@@ -129,4 +135,15 @@ public class SplashActivity extends ThinkAndroidBaseActivity {
         doActivity(R.string.loginActivity);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.facebook_register_btn:
+                doActivity(R.string.faceBookLoginActivity);
+                break;
+            case R.id.phone_register_btn:
+                doActivity(R.string.thinkandroidhttpactivtiy);
+                break;
+        }
+    }
 }

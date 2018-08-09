@@ -47,4 +47,40 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
     compile files('libs/thinkandroid-1.1-bin.jar')
+    compile 'com.google.code.gson:gson:2.6.2'
+}
+
+
+applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        def newName
+        def oldFile = output.outputFile
+        def outDirectory = oldFile.parent
+        def buildPrefix
+        def showVersion
+        if (variant.buildType.name == 'debug') {
+            buildPrefix = BUILD_PREFIX
+        } else {
+            buildPrefix = BUILD_PREFIX_RELEASE
+        }
+        def jenkinsTime = JENKINS_TIME
+        if (variant.buildType.name == 'debug') {
+            showVersion = buildPrefix + '_' + jenkinsTime + '_' + DAY_VERSION
+        } else {
+            showVersion = APP_VERSION
+        }
+        resValue("string", 'fund_app_version', showVersion)
+        def tempFile = file("build.gradle")
+        outDirectory = tempFile.parent + '/apks'
+        if (IS_JENKINS) {
+            newName = buildPrefix + '_' + jenkinsTime + '_' + DAY_VERSION + '.apk'
+        } else {
+
+            newName = 'android-v' +
+                    APP_VERSION + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + '.apk'
+        }
+
+        output.outputFile = new File(outDirectory, newName)
+
+    }
 }

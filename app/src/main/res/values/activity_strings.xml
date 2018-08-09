@@ -16,4 +16,6 @@
     <string name="faceBookLoginActivity">FaceBookLoginActivity</string>
 
     <string name="loginActivity">LoginActivity</string>
+    <string name="registerActivity">RegisterActivity</string>
+    <string name="countryCodeActivity">CountryCodeActivity</string>
 </resources>

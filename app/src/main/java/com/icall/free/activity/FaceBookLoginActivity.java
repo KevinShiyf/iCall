@@ -60,10 +60,9 @@ public class FaceBookLoginActivity extends ThinkAndroidBaseActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         if (AccountKit.getCurrentAccessToken() != null && savedInstanceState == null) {
             startActivity(new Intent(this, TokenActivity.class));
+            finish();
         } else {
             onLogin(LoginType.PHONE);
         }
@@ -89,8 +88,8 @@ public class FaceBookLoginActivity extends ThinkAndroidBaseActivity {
             toastMessage = loginResult.getError().getErrorType().getMessage();
             final Intent intent = new Intent(this, ErrorActivity.class);
             intent.putExtra(ErrorActivity.HELLO_TOKEN_ACTIVITY_ERROR_EXTRA, loginResult.getError());
-
             startActivity(intent);
+            finish();
         } else {
             final AccessToken accessToken = loginResult.getAccessToken();
             final long tokenRefreshIntervalInSeconds = loginResult.getTokenRefreshIntervalInSeconds();
@@ -98,6 +97,7 @@ public class FaceBookLoginActivity extends ThinkAndroidBaseActivity {
                 toastMessage = "Success:" + accessToken.getAccountId()
                         + tokenRefreshIntervalInSeconds;
                 startActivity(new Intent(this, TokenActivity.class));
+                finish();
             } else {
                 toastMessage = "Unknown response type";
             }

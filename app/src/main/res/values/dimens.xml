@@ -2,5 +2,5 @@
 <resources>
 
     <dimen name="image_width">128dip</dimen>
-
+    <dimen name="text_size_12sp">12sp</dimen>
 </resources>
