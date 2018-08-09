@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmm')
+    return formattedDate
+}
+def verCode = 14
+
 android {
     compileSdkVersion project.ext.compileSdk
     buildToolsVersion project.ext.buildTools
@@ -8,16 +15,92 @@ android {
         applicationId "com.icall.free"
         minSdkVersion project.ext.minSdk
         targetSdkVersion project.ext.targetSdk
-        versionCode 1
-        versionName "1.0"
+        versionCode verCode
+        versionName APP_VERSION
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        resValue("string", 'app_version', APP_VERSION)
+        buildConfigField "boolean", "LEO_DEBUG", "true"
+        buildConfigField 'String', 'API_SERVER_URL', RELEASE_API_SERVER_URL
+        buildConfigField 'String', 'API_SERVER_URL_MALL', RELEASE_API_SERVER_URL_MALL
+        signingConfig signingConfigs.signingConfig
     }
-//    buildTypes {
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//    }
+
+    signingConfigs {
+        signingConfig {
+            keyAlias 'xxx'
+            keyPassword 'xxx'
+            storeFile file('xxx')
+            storePassword 'xxx'
+        }
+    }
+
+    buildTypes {
+        release {
+            buildConfigField 'String', 'API_SERVER_URL', RELEASE_API_SERVER_URL
+            buildConfigField 'String', 'API_SERVER_URL_MALL', RELEASE_API_SERVER_URL_MALL
+            buildConfigField 'String', 'IM_SERVER_HOST', RELEASE_IM_SERVER_HOST
+            buildConfigField 'int', 'IM_SERVER_PORT', RELEASE_IM_SERVER_PORT
+            buildConfigField "boolean", "LEO_DEBUG", RELEASE_LEO_DEBUG
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField 'String', 'API_SERVER_URL', RELEASE_API_SERVER_URL
+            buildConfigField 'String', 'API_SERVER_URL_MALL', RELEASE_API_SERVER_URL_MALL
+            buildConfigField 'String', 'IM_SERVER_HOST', RELEASE_IM_SERVER_HOST
+            buildConfigField 'int', 'IM_SERVER_PORT', RELEASE_IM_SERVER_PORT
+            buildConfigField "boolean", "LEO_DEBUG", RELEASE_LEO_DEBUG
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+
+    productFlavors {
+        commonsoon {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "commonsoon"]
+        }
+        zhushou91 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "zhushou91"]
+        }
+    }
+    allprojects {
+        repositories {
+            mavenCentral()
+            maven { url "https://jitpack.io" }
+        }
+    }
+    //修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def newName
+            def timeNow
+            def oldFile = output.outputFile
+            def outDirectory = oldFile.parent
+
+            if ("true".equals(IS_JENKINS)) {
+                timeNow = JENKINS_TIME
+                outDirectory = '/mnt'
+                newName = 'yj-android-v' +
+                        APP_VERSION + '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
+            } else {
+                timeNow = getDate()
+                if (variant.buildType.name.equals('debug')) {
+                    newName = "yj-android-v${APP_VERSION}-debug.apk"
+                } else {
+                    newName = 'yj-android-v' +
+                            APP_VERSION + '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
+                }
+            }
+
+            output.outputFile = new File(outDirectory, newName)
+
+        }
+    }
+
 
     lintOptions {
         abortOnError false
@@ -36,51 +119,5 @@ android {
             include 'armeabi', 'armeabi-v7a', 'x86'
             universalApk true
         }
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
-    compile files('libs/thinkandroid-1.1-bin.jar')
-    compile 'com.google.code.gson:gson:2.6.2'
-}
-
-
-applicationVariants.all { variant ->
-    variant.outputs.each { output ->
-        def newName
-        def oldFile = output.outputFile
-        def outDirectory = oldFile.parent
-        def buildPrefix
-        def showVersion
-        if (variant.buildType.name == 'debug') {
-            buildPrefix = BUILD_PREFIX
-        } else {
-            buildPrefix = BUILD_PREFIX_RELEASE
-        }
-        def jenkinsTime = JENKINS_TIME
-        if (variant.buildType.name == 'debug') {
-            showVersion = buildPrefix + '_' + jenkinsTime + '_' + DAY_VERSION
-        } else {
-            showVersion = APP_VERSION
-        }
-        resValue("string", 'fund_app_version', showVersion)
-        def tempFile = file("build.gradle")
-        outDirectory = tempFile.parent + '/apks'
-        if (IS_JENKINS) {
-            newName = buildPrefix + '_' + jenkinsTime + '_' + DAY_VERSION + '.apk'
-        } else {
-
-            newName = 'android-v' +
-                    APP_VERSION + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + '.apk'
-        }
-
-        output.outputFile = new File(outDirectory, newName)
-
     }
 }
