@@ -5,5 +5,15 @@
     <color name="colorAccent">#FF4081</color>
     <color name="main_bg_color">#F9F9F9</color>
 
+    <color name="tab_font_nor_color">#B9B9B9</color>
+    <color name="tab_font_sel_color">#F9F9F9</color>
     <color name="rgb_808080">#808080</color>
+
+    <color name="dialpad_num_color">@android:color/black</color>
+
+    <color name="calls_tab_nor_color">#ACE0FB</color>
+    <color name="calls_tab_sel_color">#FFFFFF</color>
+
+    <color name="recent_up_fount_color">#A0A0A0</color>
+    <color name="recent_down_fount_color">#C5C5C5</color>
 </resources>

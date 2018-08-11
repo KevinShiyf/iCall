@@ -117,4 +117,24 @@
     <string name="a_to_z_Z">Z</string>
     <string name="search">Search</string>
     <string name="select_code">Select Country or Areas</string>
+
+    <string name="calls">Calls</string>
+    <string name="discover">Discover</string>
+    <string name="mycredits">Mycredits</string>
+    <string name="my_credits">My credits:</string>
+    <string name="get_more">Get More</string>
+    <string name="recents">Recents</string>
+    <string name="contacts">Contacts</string>
+    <string name="unkonwn_phone">unkonwn</string>
+
+    <string name="yesterday">yesterday</string>
+    <string name="today">today</string>
+
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
 </resources>

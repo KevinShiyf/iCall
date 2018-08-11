@@ -11,14 +11,6 @@ import android.widget.TextView;
 import com.icall.free.R;
 import com.icall.free.entity.CountryCodeEntity;
 import com.icall.free.util.CodeProperties;
-import com.icall.free.util.stringcache.TAProcessStringHandler;
-import com.icall.free.util.stringcache.TAStringCallBackHandler;
-import com.ta.TAApplication;
-import com.ta.util.cache.TAFileCacheWork;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -229,7 +221,7 @@ public class CountryCodeAdapter extends BaseAdapter {
     private Context mContext;
     private List<CountryCodeEntity> codeList;
 
-    public CountryCodeAdapter(Context context, TAApplication application) {
+    public CountryCodeAdapter(Context context) {
 //        taFileCacheWork = new TAFileCacheWork<View>();
 //        taFileCacheWork.setCallBackHandler(new TAStringCallBackHandler());
 //        taFileCacheWork.setProcessDataHandler(new TAProcessStringHandler());
@@ -268,6 +260,7 @@ public class CountryCodeAdapter extends BaseAdapter {
             viewHolder.countryIv = (ImageView) convertView.findViewById(R.id.country_iv);
             viewHolder.nameTv = (TextView) convertView.findViewById(R.id.country_name_tv);
             viewHolder.codeTv = (TextView) convertView.findViewById(R.id.country_code_tv);
+            convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder)convertView.getTag();
         }
@@ -279,7 +272,7 @@ public class CountryCodeAdapter extends BaseAdapter {
 
         CountryCodeEntity item = codeList.get(position);
         int code = item.getCode();
-        viewHolder.nameTv.setText(item.getEn());
+        viewHolder.nameTv.setText(item.getEn() != null ? item.getEn() : "");
         viewHolder.codeTv.setText("+" + code);
         viewHolder.countryIv.setImageResource(codeIconMap.get(code));
 

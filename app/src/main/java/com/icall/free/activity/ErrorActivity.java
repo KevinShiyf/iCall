@@ -30,7 +30,7 @@ import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitError;
 import com.icall.free.R;
 
-public class ErrorActivity extends Activity {
+public class ErrorActivity extends BaseActivity {
     static final String HELLO_TOKEN_ACTIVITY_ERROR_EXTRA =
             "HELLO_TOKEN_ACTIVITY_ERROR_EXTRA";
 

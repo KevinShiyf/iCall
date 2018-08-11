@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#48A7F2"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cdcdc8" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/main_tab_calls_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            android:paddingTop="5dp" >
+
+            <ImageView
+                android:id="@+id/main_tab_calls_iv"
+                android:layout_width="@dimen/main_tab_icon_size"
+                android:layout_height="@dimen/main_tab_icon_size"
+                android:background="@drawable/tab_calls_sel_icon"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/main_tab_calls_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calls"
+                android:textColor="@color/tab_font_sel_color"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_tab_discover_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            android:paddingTop="5dp" >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/main_tab_discover_iv"
+                    android:layout_width="@dimen/main_tab_icon_size"
+                    android:layout_height="@dimen/main_tab_icon_size"
+                    android:background="@drawable/tab_discover_nor_icon"
+                    android:contentDescription="@null" />
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/main_bottom_tab_layout_contacts_new"-->
+                    <!--android:layout_width="10dp"-->
+                    <!--android:layout_height="10dp"-->
+                    <!--android:layout_gravity="end|top"-->
+                    <!--android:background="@drawable/red_circle_drawable"-->
+                    <!--android:contentDescription="@null"-->
+                    <!--android:visibility="gone" />-->
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/main_tab_discover_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover"
+                android:textColor="@color/tab_font_nor_color"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_tab_me_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:baselineAligned="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            android:paddingTop="5dp" >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/main_tab_me_iv"
+                    android:layout_width="@dimen/main_tab_icon_size"
+                    android:layout_height="@dimen/main_tab_icon_size"
+                    android:background="@drawable/tab_me_nor_icon"
+                    android:contentDescription="@null" />
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/main_bottom_tab_layout_me_new_iv"-->
+                    <!--android:layout_width="10dp"-->
+                    <!--android:layout_height="10dp"-->
+                    <!--android:layout_gravity="right|top"-->
+                    <!--android:background="@drawable/red_circle_drawable"-->
+                    <!--android:contentDescription="@null"-->
+                    <!--android:visibility="gone" />-->
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/main_tab_me_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mycredits"
+                android:textColor="@color/tab_font_nor_color"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

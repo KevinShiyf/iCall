@@ -32,9 +32,8 @@ import com.facebook.accountkit.AccountKitCallback;
 import com.facebook.accountkit.AccountKitError;
 import com.facebook.accountkit.PhoneNumber;
 import com.icall.free.R;
-import com.icall.free.activity.demo.ThinkAndroidBaseActivity;
 
-public class TokenActivity extends ThinkAndroidBaseActivity {
+public class TokenActivity extends BaseActivity {
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {

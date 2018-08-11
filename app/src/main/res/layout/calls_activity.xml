@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/main_top_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <TextView
+                android:id="@+id/calls_m_iv"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_white_bg"
+                android:gravity="center"
+                android:text="M"
+                android:textColor="#FF9626"
+                android:textSize="40sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/calls_m_iv"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_credits"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/calls_credits_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="2000"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/calls_more_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/calls_m_iv"
+                android:layout_marginRight="15dp"
+                android:text="@string/get_more"
+                android:textColor="#FF9626"
+                android:textSize="22sp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:id="@+id/calls_records_rl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <View
+                    android:id="@+id/calls_recents_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/calls_tab_sel_color"
+                    android:layout_alignLeft="@id/calls_recents_tv"
+                    android:layout_alignRight="@id/calls_recents_tv">
+                </View>
+                <TextView
+                    android:id="@+id/calls_recents_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@id/calls_recents_line"
+                    android:text="@string/recents"
+                    android:textSize="16sp"
+                    android:textColor="@color/calls_tab_sel_color"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/calls_contacts_rl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <View
+                    android:id="@+id/calls_contacts_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:visibility="invisible"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/calls_tab_nor_color"
+                    android:layout_alignLeft="@id/calls_contacts_tv"
+                    android:layout_alignRight="@id/calls_contacts_tv">
+                </View>
+                <TextView
+                    android:id="@+id/calls_contacts_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@id/calls_contacts_line"
+                    android:text="@string/contacts"
+                    android:textSize="16sp"
+                    android:textColor="@color/calls_tab_nor_color"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.icall.free.views.ICallViewPager
+            android:id="@+id/calls_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginBottom="2dp"
+            layout="@layout/dialpad_layout" />
+    </FrameLayout>
+
+</LinearLayout>

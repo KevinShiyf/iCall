@@ -42,12 +42,11 @@ import com.facebook.accountkit.ui.LoginType;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.icall.free.R;
-import com.icall.free.activity.demo.ThinkAndroidBaseActivity;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class FaceBookLoginActivity extends ThinkAndroidBaseActivity {
+public class FaceBookLoginActivity extends BaseActivity {
     private static final int FRAMEWORK_REQUEST_CODE = 1;
 
     private int nextPermissionsRequestCode = 4000;

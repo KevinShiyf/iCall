@@ -1,34 +1,34 @@
 package com.icall.free.activity;
 
-import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.android.pc.ioc.inject.InjectInit;
+import com.android.pc.ioc.inject.InjectLayer;
+import com.android.pc.ioc.inject.InjectView;
 import com.icall.free.R;
-import com.icall.free.activity.demo.ThinkAndroidBaseActivity;
 import com.icall.free.adapter.CountryCodeAdapter;
-import com.ta.annotation.TAInjectView;
 
-public class CountryCodeActivity extends ThinkAndroidBaseActivity {
+@InjectLayer(R.layout.country_code_activity)
+public class CountryCodeActivity extends BaseActivity {
 
     CountryCodeAdapter codeAdapter;
 
-    @TAInjectView(id = R.id.country_select_listview)
-    ListView countrySelectListview;
+    @InjectView
+    ListView country_select_listview;
 
-    @Override
-    protected void onAfterOnCreate(Bundle savedInstanceState) {
+    @InjectInit
+    protected void init() {
         // TODO Auto-generated method stub
-        super.onAfterOnCreate(savedInstanceState);
-        setTitle(R.string.signin);
-        setContentView(R.layout.countrycode);
-    }
-
-    @Override
-    protected void onAfterSetContentView() {
-        // TODO Auto-generated method stub
-        super.onAfterSetContentView();
-        codeAdapter = new CountryCodeAdapter(this, getTAApplication());
-        countrySelectListview.setAdapter(codeAdapter);
+        codeAdapter = new CountryCodeAdapter(this);
+        country_select_listview.setAdapter(codeAdapter);
         codeAdapter.notifyDataSetChanged();
+        country_select_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
     }
 }

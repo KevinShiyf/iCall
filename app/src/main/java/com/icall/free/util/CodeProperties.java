@@ -8,8 +8,8 @@ import java.util.Properties;
 
 import android.content.Context;
 
+import com.icall.free.ICallApplication;
 import com.icall.free.entity.CountryCodeEntity;
-import com.ta.TAApplication;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +26,7 @@ public class CodeProperties {
 		codeList = new ArrayList<>();
 		Properties properties = new Properties();
 		try {
-			Context mC = TAApplication.getApplication();
+			Context mC = ICallApplication.getApplication();
 			InputStream inputStream = mC.getAssets().open("code.json");
 			if (inputStream != null) {
 				int bodyLength = inputStream.available();

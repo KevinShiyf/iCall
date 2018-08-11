@@ -13,8 +13,50 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
+    <uses-permission android:name="android.permission.READ_CALL_LOG" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
+    <!-- Required  一些系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!-- 极光SDK权限配置结束 -->
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <!--###################-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- <uses-permission android:name="android.permission.DEVICE_POWER"/> -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- 从SDCard读取数据权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+
     <application
-        android:name="com.ta.TAApplication"
+        android:name=".ICallApplication"
         android:icon="@mipmap/logo"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
         android:label="@string/app_name">
@@ -33,28 +75,13 @@
         <activity android:name=".activity.LoginActivity"></activity>
         <activity android:name=".activity.RegisterActivity"></activity>
         <activity android:name=".activity.CountryCodeActivity"></activity>
-
-        <activity android:name=".activity.demo.ThinkAndroidMainActivity"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidCacheActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidDBActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidImageCacheActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidMvcActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidHttpActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidDwonLoadActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidMultiThreadDwonLoadActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidSimpleDwonLoadActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidSimpleTwoDwonLoadActivtiy"></activity>
-        <activity android:name=".activity.demo.ThinkAndroidOtherActivtiy"></activity>
-
-
-
-        <receiver android:name="com.icall.free.util.netstate.TANetworkStateReceiver">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="ta.android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
+        <activity android:name=".activity.MainTabActivity"></activity>
+        <meta-data
+            android:name="exclude-package"
+            android:value="com.wash.activity.R,android.support.v4.app.FragmentActivity" />
+        <meta-data
+            android:name="include-package"
+            android:value="com.wash.activity" />
 
         <activity android:name="com.facebook.accountkit.ui.AccountKitEmailRedirectActivity">
             <intent-filter>
@@ -66,6 +93,8 @@
                 <data android:scheme="@string/ak_login_protocol_scheme" />
             </intent-filter>
         </activity>
+
+        <service android:name=".service.CoreService"></service>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

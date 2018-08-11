@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    apply from: "${rootDir}/constants.gradle"
+    apply from: "${rootDir}/conf.gradle"
 
     repositories {
         jcenter()
@@ -22,7 +22,7 @@ allprojects {
         }
     }
 
-    project.apply from: "${rootDir}/constants.gradle"
+    project.apply from: "${rootDir}/conf.gradle"
 }
 
 task clean(type: Delete) {

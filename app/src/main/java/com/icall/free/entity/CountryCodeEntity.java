@@ -1,6 +1,8 @@
 package com.icall.free.entity;
 
-public class CountryCodeEntity {
+import java.io.Serializable;
+
+public class CountryCodeEntity implements Serializable {
     private int code;
     private String tw;
     private String en;
