@@ -76,14 +76,6 @@ public class MainTabActivity extends BaseActivity {
 	@InjectView
 	private TextView main_tab_me_tv;
 
-	@InjectView
-	private DrawerLayout drawerLayout;
-	@InjectView
-	private NavigationView navigationView;
-
-	@InjectView
-	private Toolbar mToolBar;
-
 	/** 底部Tab */
 //	@InjectView
 //	private View main_tab_bottom_ll;
@@ -118,21 +110,6 @@ public class MainTabActivity extends BaseActivity {
 
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
-			}
-		});
-
-		ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolBar, 0, 0);
-		// 添加此句，toolbar左上角显示开启侧边栏图标
-		mDrawerToggle.syncState();
-
-		drawerLayout.addDrawerListener(mDrawerToggle);
-
-		navigationView.setItemIconTintList(null);
-		navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-			@Override
-			public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-				Toast.makeText(getApplicationContext(), item.getItemId() + "--" + item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-				return true;
 			}
 		});
 	}

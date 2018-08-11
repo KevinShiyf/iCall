@@ -6,8 +6,6 @@
     android:orientation="vertical" >
 
     <include
-        layout="@layout/drawer_layout"></include>
-    <include
         android:id="@+id/main_tab_bottom_ll"
         android:layout_width="match_parent"
         android:layout_height="56dp"

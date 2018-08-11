@@ -82,6 +82,10 @@
 
         <activity android:name=".activity.GoogleSearchActivity"></activity>
 
+        <activity
+            android:name=".activity.DrawerActivity"
+            android:theme="@style/AppTheme"></activity>
+
         <meta-data
             android:name="exclude-package"
             android:value="com.wash.activity.R,android.support.v4.app.FragmentActivity" />

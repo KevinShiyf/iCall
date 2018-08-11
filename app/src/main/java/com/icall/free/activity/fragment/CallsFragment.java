@@ -27,6 +27,7 @@ import com.android.pc.ioc.view.listener.OnClick;
 import com.android.pc.util.Handler_Inject;
 import com.icall.free.R;
 import com.icall.free.activity.CountryCodeActivity;
+import com.icall.free.activity.DrawerActivity;
 import com.icall.free.activity.MainTabActivity;
 import com.icall.free.activity.PhoneCallingActivity;
 import com.icall.free.event.MessageType;
@@ -65,7 +66,7 @@ public class CallsFragment extends BaseFragment {
 
     }
     private final static int SELECT_CODE_CODE = 101;
-    private static final int MAX_TAB_COUNT = 3;
+    private static final int MAX_TAB_COUNT = 2;
 
     private List<Fragment> mTabList;
     private RecentsFragment mRecentsFragment;
@@ -187,7 +188,8 @@ public class CallsFragment extends BaseFragment {
                 dialPadInput("DEL");
                 break;
             case R.id.dialpad_call_rl:
-                startActivity(PhoneCallingActivity.class);
+//                startActivity(PhoneCallingActivity.class);
+                startActivity(DrawerActivity.class);
                 break;
             case R.id.dialpad_code_fl:
                 startActivity(CountryCodeActivity.class, SELECT_CODE_CODE);
