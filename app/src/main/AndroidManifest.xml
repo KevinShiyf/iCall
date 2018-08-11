@@ -76,6 +76,12 @@
         <activity android:name=".activity.RegisterActivity"></activity>
         <activity android:name=".activity.CountryCodeActivity"></activity>
         <activity android:name=".activity.MainTabActivity"></activity>
+
+        <activity android:name=".activity.PhoneCallingActivity"></activity>
+        <activity android:name=".activity.PhoneCallendActivity"></activity>
+
+        <activity android:name=".activity.GoogleSearchActivity"></activity>
+
         <meta-data
             android:name="exclude-package"
             android:value="com.wash.activity.R,android.support.v4.app.FragmentActivity" />

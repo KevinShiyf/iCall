@@ -121,7 +121,8 @@
     <string name="calls">Calls</string>
     <string name="discover">Discover</string>
     <string name="mycredits">Mycredits</string>
-    <string name="my_credits">My credits:</string>
+    <string name="my_credits_">My credits:</string>
+
     <string name="get_more">Get More</string>
     <string name="recents">Recents</string>
     <string name="contacts">Contacts</string>
@@ -137,4 +138,25 @@
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
+
+
+    <string name="rate">Rate</string>
+    <string name="my_credits">My Credits</string>
+    <string name="rest_duration">Rest Duration</string>
+    <string name="minute">Minute</string>
+    <string name="credits">Credits</string>
+    <string name="credits_">Credits:</string>
+
+    <string name="keyboard">Keyboard</string>
+    <string name="speaker">Speaker</string>
+    <string name="mute">Mute</string>
+    <string name="callend">Call End</string>
+
+    <string name="cost_">cost:</string>
+    <string name="save_">save:</string>
+
+    <string name="hot">Hot</string>
+    <string name="funny">Funny</string>
+    <string name="girls">Girls</string>
+    <string name="delete_all_history">Delete all history</string>
 </resources>

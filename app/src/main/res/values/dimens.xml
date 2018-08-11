@@ -8,4 +8,8 @@
 
     <dimen name="dialpad_num_size">30dp</dimen>
     <dimen name="dialpad_num_space">2dp</dimen>
+
+    <dimen name="phone_calling_space">20dp</dimen>
+
+    <dimen name="phone_calling_fone">16sp</dimen>
 </resources>

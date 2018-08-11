@@ -28,6 +28,7 @@ import com.android.pc.util.Handler_Inject;
 import com.icall.free.R;
 import com.icall.free.activity.CountryCodeActivity;
 import com.icall.free.activity.MainTabActivity;
+import com.icall.free.activity.PhoneCallingActivity;
 import com.icall.free.event.MessageType;
 import com.icall.free.views.ICallViewPager;
 
@@ -186,7 +187,7 @@ public class CallsFragment extends BaseFragment {
                 dialPadInput("DEL");
                 break;
             case R.id.dialpad_call_rl:
-
+                startActivity(PhoneCallingActivity.class);
                 break;
             case R.id.dialpad_code_fl:
                 startActivity(CountryCodeActivity.class, SELECT_CODE_CODE);
@@ -236,7 +237,7 @@ public class CallsFragment extends BaseFragment {
         switch (index) {
             case RECENTS_POSITION:
                 views.calls_recents_tv.setTextColor(getResources().getColor(R.color.calls_tab_sel_color));
-                views.calls_recents_line.setBackgroundResource(R.color.calls_tab_nor_color);
+                views.calls_recents_line.setBackgroundResource(R.color.calls_tab_sel_color);
                 views.calls_recents_line.setVisibility(View.VISIBLE);
 
                 views.calls_contacts_tv.setTextColor(getResources().getColor(R.color.calls_tab_nor_color));

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialpad_bg">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/google_icon"/>
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/google_search_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:hint="@string/search"
+            android:paddingLeft="5dp"
+            android:textColor="#888888"
+            android:textSize="12sp"
+            android:background="@drawable/google_edit_bg"/>
+
+        <RelativeLayout
+            android:id="@+id/google_search_iv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/google_search_icon"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/google_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent">
+    </View>
+
+</FrameLayout>

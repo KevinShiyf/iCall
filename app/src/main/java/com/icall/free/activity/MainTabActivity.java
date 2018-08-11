@@ -2,10 +2,16 @@ package com.icall.free.activity;
 
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -13,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.pc.ioc.event.EventBus;
 import com.android.pc.ioc.inject.InjectBinder;
@@ -69,6 +76,14 @@ public class MainTabActivity extends BaseActivity {
 	@InjectView
 	private TextView main_tab_me_tv;
 
+	@InjectView
+	private DrawerLayout drawerLayout;
+	@InjectView
+	private NavigationView navigationView;
+
+	@InjectView
+	private Toolbar mToolBar;
+
 	/** 底部Tab */
 //	@InjectView
 //	private View main_tab_bottom_ll;
@@ -81,6 +96,7 @@ public class MainTabActivity extends BaseActivity {
 	private static final int ME_POSITION = 2; // 我
 
 	private int currentIndex = CALLS_POSITION; // 当前选中标签
+
 
 	@InjectInit
 	protected void init() {
@@ -102,6 +118,21 @@ public class MainTabActivity extends BaseActivity {
 
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
+			}
+		});
+
+		ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolBar, 0, 0);
+		// 添加此句，toolbar左上角显示开启侧边栏图标
+		mDrawerToggle.syncState();
+
+		drawerLayout.addDrawerListener(mDrawerToggle);
+
+		navigationView.setItemIconTintList(null);
+		navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+			@Override
+			public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+				Toast.makeText(getApplicationContext(), item.getItemId() + "--" + item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+				return true;
 			}
 		});
 	}

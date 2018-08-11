@@ -1,22 +1,25 @@
 package com.icall.free.activity.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
-import android.support.v4.app.Fragment;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.ImageButton;
-import android.widget.ListView;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
+import android.widget.Toast;
 
+import com.android.pc.ioc.inject.InjectAll;
+import com.android.pc.ioc.inject.InjectBinder;
+import com.android.pc.ioc.view.listener.OnClick;
+import com.android.pc.util.Handler_Inject;
 import com.icall.free.R;
-
-import java.util.ArrayList;
 
 /**
  * @author: xiaozhenhua
@@ -24,49 +27,37 @@ import java.util.ArrayList;
  */
 
 public class MeFragment extends BaseFragment {
-    private View mView;
-    private ImageButton roamButton;
+    @InjectAll
+    Views views;
 
-    public MeFragment() {
+    class Views {
+        @InjectBinder(method = "click", listeners = {OnClick.class})
+        public ImageView me_head_iv;
 
-    }
+        public TextView me_name_tv;
+        public TextView me_credits_tv;
+        public TextView me_lv_tv;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mInstance = this;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        this.mView = inflater.inflate(R.layout.me_activity, container, false);
-        initViews();
-        return this.mView;
+        this.inflater = inflater;
+        View rootView = inflater.inflate(R.layout.me_activity, container, false);
+        Handler_Inject.injectOrther(this, rootView);
+        return rootView;
     }
 
     private void initViews() {
 
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-
-    private static MeFragment mInstance = null;
-
-    public static Fragment newInstance() {
-        if (mInstance == null) {
-            mInstance = new MeFragment();
+    public void click(View v) {
+        switch (v.getId()) {
+            case R.id.me_head_iv:
+//                drawerLayout.showContextMenu();
+                break;
         }
-        return mInstance;
     }
 }
 

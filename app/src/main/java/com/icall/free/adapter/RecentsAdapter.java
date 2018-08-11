@@ -94,14 +94,16 @@ public class RecentsAdapter extends BaseAdapter {
         String tmpPhone = item.getPhone();
         int tmpType = item.getType();
         if (tmpType == CallLog.Calls.INCOMING_TYPE) {
-
+            holder.recents_item_call_iv.setImageResource(R.drawable.calllog_item_in_icon);
 //            holder.typeIV.setVisibility(View.VISIBLE);
 //            holder.upTV.setTextColor(mContext.getResources().getColor(R.color.rgb_000000));
         } else if (tmpType == CallLog.Calls.OUTGOING_TYPE) {
+            holder.recents_item_call_iv.setImageResource(R.drawable.calllog_item_out_icon);
 //            holder.typeIV.setVisibility(View.VISIBLE);
 //            holder.typeIV.setImageResource(R.drawable.home_icon_dail);
 //            holder.upTV.setTextColor(mContext.getResources().getColor(R.color.rgb_000000));
         } else {
+            holder.recents_item_call_iv.setImageResource(R.drawable.calling_item_miss_icon);
 //            holder.typeIV.setVisibility(View.INVISIBLE);
 //            holder.upTV.setTextColor(mContext.getResources().getColor(R.color.rgb_ffff3c30));
         }

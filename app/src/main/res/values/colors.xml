@@ -16,4 +16,11 @@
 
     <color name="recent_up_fount_color">#A0A0A0</color>
     <color name="recent_down_fount_color">#C5C5C5</color>
+
+    <color name="phone_calling_font_color">#7E7E7E</color>
+
+    <color name="phone_callend_font_color">@android:color/white</color>
+
+    <color name="main_tab_bg_color">#48A7F2</color>
+
 </resources>
