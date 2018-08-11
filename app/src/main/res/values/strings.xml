@@ -159,4 +159,13 @@
     <string name="funny">Funny</string>
     <string name="girls">Girls</string>
     <string name="delete_all_history">Delete all history</string>
+
+
+
+    <string name="credits_help">How to get credits</string>
+    <string name="query_rates">Query call rates</string>
+    <string name="promotion_code">Promotion code</string>
+    <string name="feed_back">Feed back</string>
+    <string name="rate_us">Rate us</string>
+    <string name="logout">Logout</string>
 </resources>

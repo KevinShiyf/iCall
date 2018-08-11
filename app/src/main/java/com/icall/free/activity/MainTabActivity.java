@@ -10,7 +10,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -43,7 +45,7 @@ import java.util.List;
  * 
  */
 @InjectLayer(R.layout.main_tab_layout)
-public class MainTabActivity extends BaseActivity {
+public class MainTabActivity extends AppCompatActivity {
 	private static final int MAX_TAB_COUNT = 3;
 
 	private List<Fragment> mTabList;
@@ -52,34 +54,41 @@ public class MainTabActivity extends BaseActivity {
 	private MeFragment mMeFragment;
 
 	@InjectView
-	private ICallViewPager main_tab_viewpager;
+	public ICallViewPager main_tab_viewpager;
 
     @InjectView(binders = { @InjectBinder(method = "click", listeners = { OnClick.class }) })
-    private LinearLayout main_tab_calls_ll;
+	public LinearLayout main_tab_calls_ll;
     @InjectView
-    private ImageView main_tab_calls_iv;
+	public ImageView main_tab_calls_iv;
     @InjectView
-    private TextView main_tab_calls_tv;
+	public TextView main_tab_calls_tv;
 
 	@InjectView(binders = { @InjectBinder(method = "click", listeners = { OnClick.class }) })
-	private LinearLayout main_tab_discover_ll;
+	public LinearLayout main_tab_discover_ll;
 	@InjectView
-	private ImageView main_tab_discover_iv;
+	public ImageView main_tab_discover_iv;
 	@InjectView
-	private TextView main_tab_discover_tv;
+	public TextView main_tab_discover_tv;
 
 
 	@InjectView(binders = { @InjectBinder(method = "click", listeners = { OnClick.class }) })
-	private LinearLayout main_tab_me_ll;
+	public LinearLayout main_tab_me_ll;
 	@InjectView
-	private ImageView main_tab_me_iv;
+	public ImageView main_tab_me_iv;
 	@InjectView
-	private TextView main_tab_me_tv;
+	public TextView main_tab_me_tv;
+
+	@InjectView
+	public DrawerLayout drawer_layout;
+	@InjectView
+	public NavigationView navigation_view;
+	@InjectView
+	public Toolbar tool_bar;
+
 
 	/** 底部Tab */
 //	@InjectView
 //	private View main_tab_bottom_ll;
-
 
 	private MyViewPagerAdapter mMyViewPagerAdapter;
 
@@ -92,6 +101,7 @@ public class MainTabActivity extends BaseActivity {
 
 	@InjectInit
 	protected void init() {
+		EventBus.getDefault().register(this);
         closeOtherActivity();
 		addTabs();
 //		measureView(main_tab_bottom_ll);
@@ -112,6 +122,21 @@ public class MainTabActivity extends BaseActivity {
 			public void onPageScrollStateChanged(int arg0) {
 			}
 		});
+
+		ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, drawer_layout, tool_bar, 0, 0);
+		drawer_layout.addDrawerListener(mDrawerToggle);
+
+		navigation_view.setItemIconTintList(null);
+		navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+			@Override
+			public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+				Toast.makeText(getApplicationContext(), item.getItemId() + "--" + item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+				return true;
+			}
+		});
+
+		//        // 禁用手势
+		drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 	}
 	
 	private void closeOtherActivity() {
@@ -138,6 +163,7 @@ public class MainTabActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		EventBus.getDefault().unregister(this);
 		mHandle.removeCallbacksAndMessages(null);
 	}
 
@@ -293,16 +319,20 @@ public class MainTabActivity extends BaseActivity {
 //		}
 	}
 
-//	public void onEventMainThread(UpdateEvent event) {
-//		if (event == null) {
-//			return;
-//		}
-//		if (event.type == UpdateEvent.TYPE_AUTO_UPDATE) {
-//			if (event.result == UpdateEvent.NEW_VERSION_YES) {
-//				GlobalVariable.showUpdateDialog(this, event.updateInfo);
-//			}
-//		}
-//	}
+	public void onEventMainThread(Message msg) {
+		if (msg == null) {
+			return;
+		}
+		switch (MessageType.values()[msg.what]){
+			case OPEN_LEFT_DRAWER:
+				if (drawer_layout.isDrawerOpen(Gravity.LEFT)) {
+					drawer_layout.closeDrawer(Gravity.LEFT);
+                } else {
+					drawer_layout.openDrawer(Gravity.LEFT);
+                }
+				break;
+		}
+	}
 
 	/**
 	 * 为Fragment提供触摸监听相关

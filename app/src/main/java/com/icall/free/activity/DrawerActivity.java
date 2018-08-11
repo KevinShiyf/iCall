@@ -48,51 +48,27 @@ import com.icall.free.R;
 @InjectLayer(R.layout.drawer_layout)
 public class DrawerActivity extends AppCompatActivity {
 
-    @InjectView
-    public DrawerLayout drawerLayout;
-    @InjectView
-    public NavigationView navigation_view;
-
-    @InjectView
-    public Toolbar mToolBar;
-
     @InjectView(binders = { @InjectBinder(method = "click", listeners = { OnClick.class }) })
     public Button test_tv;
 
     @InjectInit
     public void init() {
-        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mToolBar, 0, 0);
-        // 添加此句，toolbar左上角显示开启侧边栏图标
-        mDrawerToggle.syncState();
 
-        drawerLayout.addDrawerListener(mDrawerToggle);
-
-        navigation_view.setItemIconTintList(null);
-        navigation_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Toast.makeText(getApplicationContext(), item.getItemId() + "--" + item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
-
-        //        // 禁用手势
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 //        // 打开
 
 //        // 关闭
 
     }
 
-    private void click(View v) {
-        switch (v.getId()) {
-            case R.id.test_tv:
-                if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
-                    drawerLayout.closeDrawer(Gravity.LEFT);
-                } else {
-                    drawerLayout.openDrawer(Gravity.LEFT);
-                }
-                break;
-        }
-    }
+//    private void click(View v) {
+//        switch (v.getId()) {
+//            case R.id.test_tv:
+//                if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
+//                    drawerLayout.closeDrawer(Gravity.LEFT);
+//                } else {
+//                    drawerLayout.openDrawer(Gravity.LEFT);
+//                }
+//                break;
+//        }
+//    }
 }

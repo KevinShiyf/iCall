@@ -9,7 +9,7 @@ public enum MessageType {
 
 	COMPLETE_LOAD_CALLLOGS, // 完成加载通话记录
 
-
+	OPEN_LEFT_DRAWER,
 
 
 	HIDE_TAB_MSG, // 隐藏标签

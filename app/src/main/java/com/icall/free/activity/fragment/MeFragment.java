@@ -2,6 +2,7 @@ package com.icall.free.activity.fragment;
 
 
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -15,11 +16,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.pc.ioc.event.EventBus;
 import com.android.pc.ioc.inject.InjectAll;
 import com.android.pc.ioc.inject.InjectBinder;
 import com.android.pc.ioc.view.listener.OnClick;
 import com.android.pc.util.Handler_Inject;
 import com.icall.free.R;
+import com.icall.free.event.MessageType;
 
 /**
  * @author: xiaozhenhua
@@ -56,6 +59,9 @@ public class MeFragment extends BaseFragment {
         switch (v.getId()) {
             case R.id.me_head_iv:
 //                drawerLayout.showContextMenu();
+                Message msg = Message.obtain();
+                msg.what = MessageType.OPEN_LEFT_DRAWER.ordinal();
+                EventBus.getDefault().post(msg);
                 break;
         }
     }

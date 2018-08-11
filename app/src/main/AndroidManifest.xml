@@ -75,7 +75,9 @@
         <activity android:name=".activity.LoginActivity"></activity>
         <activity android:name=".activity.RegisterActivity"></activity>
         <activity android:name=".activity.CountryCodeActivity"></activity>
-        <activity android:name=".activity.MainTabActivity"></activity>
+        <activity
+            android:name=".activity.MainTabActivity"
+            android:theme="@style/AppTheme"></activity>
 
         <activity android:name=".activity.PhoneCallingActivity"></activity>
         <activity android:name=".activity.PhoneCallendActivity"></activity>

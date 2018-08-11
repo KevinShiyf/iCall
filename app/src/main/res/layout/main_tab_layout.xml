@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bg_color"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <include
-        android:id="@+id/main_tab_bottom_ll"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        layout="@layout/main_bottom_tab_layout" />
-
-    <com.icall.free.views.ICallViewPager
-        android:id="@+id/main_tab_viewpager"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/main_tab_bottom_ll" />
-</RelativeLayout>
+        android:background="@color/main_bg_color"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            android:visibility="gone"
+            android:minHeight="?attr/actionBarSize"
+            android:popupTheme="@style/Widget.AppCompat.ActionBar"
+            app:theme="@style/Theme.AppCompat.Light.NoActionBar"></android.support.v7.widget.Toolbar>
+        <include
+            android:id="@+id/main_tab_bottom_ll"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            layout="@layout/main_bottom_tab_layout" />
+
+        <com.icall.free.views.ICallViewPager
+            android:id="@+id/main_tab_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/main_tab_bottom_ll" />
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/drawer_head_layout"
+        app:menu="@menu/drawer_menu">
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>

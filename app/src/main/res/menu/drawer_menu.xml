@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/favorite"
-        android:icon="@mipmap/ic_launcher"
-        android:title="收藏" />
+        android:id="@+id/drawer_help_item"
+        android:icon="@drawable/drawer_help_icon"
+        android:title="@string/credits_help" />
     <item
-        android:id="@+id/wallet"
-        android:icon="@mipmap/ic_launcher"
-        android:title="钱包" />
+        android:id="@+id/drawer_query_item"
+        android:icon="@drawable/drawer_query_icon"
+        android:title="@string/query_rates" />
     <item
-        android:id="@+id/photo"
-        android:icon="@mipmap/ic_launcher"
-        android:title="相册" />
+        android:id="@+id/drawer_promotion_item"
+        android:icon="@drawable/drawer_promotion_icon"
+        android:title="@string/promotion_code" />
     <item
-        android:id="@+id/file"
-        android:icon="@mipmap/ic_launcher"
-        android:title="文件" />
+        android:id="@+id/drawer_feed_back_item"
+        android:icon="@drawable/drawer_feed_back"
+        android:title="@string/feed_back" />
+    <item
+        android:id="@+id/drawer_rate_item"
+        android:icon="@drawable/drawer_rate_icon"
+        android:title="@string/rate_us" />
+    <item
+        android:id="@+id/drawer_logout_item"
+        android:icon="@drawable/drawer_logout_icon"
+        android:title="@string/logout" />
 </menu>

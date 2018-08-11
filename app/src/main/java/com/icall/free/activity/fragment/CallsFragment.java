@@ -188,8 +188,7 @@ public class CallsFragment extends BaseFragment {
                 dialPadInput("DEL");
                 break;
             case R.id.dialpad_call_rl:
-//                startActivity(PhoneCallingActivity.class);
-                startActivity(DrawerActivity.class);
+                startActivity(PhoneCallingActivity.class);
                 break;
             case R.id.dialpad_code_fl:
                 startActivity(CountryCodeActivity.class, SELECT_CODE_CODE);
