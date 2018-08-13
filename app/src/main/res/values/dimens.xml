@@ -12,4 +12,16 @@
     <dimen name="phone_calling_space">20dp</dimen>
 
     <dimen name="phone_calling_fone">16sp</dimen>
+
+    <dimen name="me_space">10sp</dimen>
+    <dimen name="me_icon_size">25dp</dimen>
+    <dimen name="me_font_size">16sp</dimen>
+    <dimen name="me_item_hight">55dp</dimen>
+
+    <dimen name="game_margin_top">92dp</dimen>
+    <dimen name="game_red_packet_hight">80dp</dimen>
+    <dimen name="game_red_packet_top">30dp</dimen>
+    <dimen name="game_red_packet_left">75dp</dimen>
+
+
 </resources>

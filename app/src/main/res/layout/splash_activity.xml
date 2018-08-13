@@ -5,40 +5,64 @@
     android:background="@color/main_bg_color"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/splash_facebook_btn"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:text="facebook register"
-        android:textSize="18sp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/welcome"/>
 
-    <Button
-        android:id="@+id/splash_register_btn"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:text="phone register"
-        android:textSize="18sp" />
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Welcome to iCall"
+            android:textColor="#46A9F8"
+            android:textSize="40sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40dp"
+            android:paddingRight="30dp"
+            android:textColor="#46A9F8"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            android:text="You can directly make free call to any phone number,even if contact don't have icall."/>
 
-    <Button
-        android:id="@+id/splash_login_btn"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text="phone login"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/splash_btn"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="Continue"
+            android:background="@drawable/button_bule_bg"
+            android:layout_marginTop="50dp"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"/>
 
-    <Button
-        android:id="@+id/splash_main_btn"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text="main activity"
-        android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_below="@id/login_main_layout"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
 
+            <CheckBox
+                android:id="@+id/login_checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:button="@drawable/checkbox_bg"
+                android:checked="true"
+                android:padding="5dp"
+                android:text="@string/agree_use_desc"
+                android:textColor="#9B9B9B"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

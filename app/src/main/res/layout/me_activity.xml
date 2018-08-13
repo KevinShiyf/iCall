@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/me_top_layout"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:background="@drawable/main_top_bg">
@@ -73,21 +74,259 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="right"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="25dp">
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/phone_end_icon"/>
+                    android:layout_width="52dp"
+                    android:layout_height="29dp"
+                    android:src="@drawable/me_crown_icon"/>
                 <TextView
                     android:id="@+id/me_lv_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@android:color/white"
+                    android:layout_marginTop="5dp"
                     android:text="Lv 1"
                     android:textSize="16sp"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/me_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="@dimen/me_space"
+        android:layout_marginRight="@dimen/me_space"
+        android:layout_marginBottom="3dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@drawable/dialpad_bg">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="@string/credits_records"
+            android:textColor="@color/me_font_color"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:textSize="10sp"
+            android:layout_gravity="center_horizontal" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="@color/me_font_color"></View>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="none">
+        </ListView>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/me_bottom_layout"
+        android:layout_below="@id/me_top_layout"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/me_signin_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_hight"
+                android:background="@drawable/dialpad_bg"
+                android:layout_marginLeft="@dimen/me_space"
+                android:layout_marginRight="@dimen/me_space"
+                android:layout_marginTop="@dimen/me_space">
+                <ImageView
+                    android:id="@+id/me_signin_iv"
+                    android:layout_width="@dimen/me_icon_size"
+                    android:layout_height="@dimen/me_icon_size"
+                    android:src="@drawable/me_signin_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/me_signin_iv"
+                    android:layout_marginLeft="18dp"
+                    android:layout_centerVertical="true"
+                    android:text="@string/daliy_check_in"
+                    android:textColor="@color/me_font_color"
+                    android:textSize="@dimen/me_font_size"/>
+                <TextView
+                    android:id="@+id/me_checkin_reward_tv"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="1"
+                    android:background="@drawable/fillet_green_bg"
+                    android:layout_centerVertical="true"
+                    android:text="+50"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/me_game_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_hight"
+                android:background="@drawable/dialpad_bg"
+                android:layout_marginLeft="@dimen/me_space"
+                android:layout_marginRight="@dimen/me_space"
+                android:layout_marginTop="@dimen/me_space">
+                <ImageView
+                    android:id="@+id/me_game_iv"
+                    android:layout_width="@dimen/me_icon_size"
+                    android:layout_height="@dimen/me_icon_size"
+                    android:src="@drawable/me_game_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/me_game_iv"
+                    android:layout_marginLeft="18dp"
+                    android:layout_centerVertical="true"
+                    android:text="@string/game_name"
+                    android:textColor="@color/me_font_color"
+                    android:textSize="@dimen/me_font_size"/>
+                <TextView
+                    android:id="@+id/me_game_reward_tv"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="1"
+                    android:background="@drawable/fillet_green_bg"
+                    android:layout_centerVertical="true"
+                    android:text="+50"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/me_bind_phone_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_hight"
+                android:background="@drawable/dialpad_bg"
+                android:layout_marginLeft="@dimen/me_space"
+                android:layout_marginRight="@dimen/me_space"
+                android:layout_marginTop="@dimen/me_space">
+                <ImageView
+                    android:id="@+id/me_bind_phone_iv"
+                    android:layout_width="@dimen/me_icon_size"
+                    android:layout_height="@dimen/me_icon_size"
+                    android:src="@drawable/me_bind_phone_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/me_bind_phone_iv"
+                    android:layout_marginLeft="18dp"
+                    android:layout_centerVertical="true"
+                    android:text="@string/bind_phone"
+                    android:textColor="@color/me_font_color"
+                    android:textSize="@dimen/me_font_size"/>
+                <TextView
+                    android:id="@+id/me_bind_reward_tv"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="1"
+                    android:background="@drawable/fillet_green_bg"
+                    android:layout_centerVertical="true"
+                    android:text="+50"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/me_recommend_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_hight"
+                android:background="@drawable/dialpad_bg"
+                android:layout_marginLeft="@dimen/me_space"
+                android:layout_marginRight="@dimen/me_space"
+                android:layout_marginTop="@dimen/me_space">
+                <ImageView
+                    android:id="@+id/me_recommend_iv"
+                    android:layout_width="@dimen/me_icon_size"
+                    android:layout_height="@dimen/me_icon_size"
+                    android:src="@drawable/me_recommend_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/me_recommend_iv"
+                    android:layout_marginLeft="18dp"
+                    android:layout_centerVertical="true"
+                    android:text="@string/daliy_check_in"
+                    android:textColor="@color/me_font_color"
+                    android:textSize="@dimen/me_font_size"/>
+                <TextView
+                    android:id="@+id/me_recommend_reward_tv"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="1"
+                    android:background="@drawable/fillet_green_bg"
+                    android:layout_centerVertical="true"
+                    android:text="+50"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/me_share_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_hight"
+                android:background="@drawable/dialpad_bg"
+                android:layout_marginLeft="@dimen/me_space"
+                android:layout_marginRight="@dimen/me_space"
+                android:layout_marginTop="@dimen/me_space">
+                <ImageView
+                    android:id="@+id/me_share_iv"
+                    android:layout_width="@dimen/me_icon_size"
+                    android:layout_height="@dimen/me_icon_size"
+                    android:src="@drawable/me_share_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/me_share_iv"
+                    android:layout_marginLeft="18dp"
+                    android:layout_centerVertical="true"
+                    android:text="@string/invite_friend"
+                    android:textColor="@color/me_font_color"
+                    android:textSize="@dimen/me_font_size"/>
+                <TextView
+                    android:id="@+id/me_share_reward_tv"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="1"
+                    android:background="@drawable/fillet_green_bg"
+                    android:layout_centerVertical="true"
+                    android:text="+50"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

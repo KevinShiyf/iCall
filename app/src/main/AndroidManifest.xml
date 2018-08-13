@@ -52,7 +52,7 @@
 
     <!-- 从SDCard读取数据权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
 
     <application
@@ -61,7 +61,7 @@
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
         android:label="@string/app_name">
         <activity
-            android:name=".activity.SplashActivity"
+            android:name=".activity.LaunchActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,6 +69,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SplashActivity"></activity>
         <activity android:name=".activity.FaceBookLoginActivity"></activity>
         <activity android:name=".activity.ErrorActivity"></activity>
         <activity android:name=".activity.TokenActivity"></activity>
@@ -83,7 +84,7 @@
         <activity android:name=".activity.PhoneCallendActivity"></activity>
 
         <activity android:name=".activity.GoogleSearchActivity"></activity>
-
+        <activity android:name=".activity.GameActivity"></activity>
         <activity
             android:name=".activity.DrawerActivity"
             android:theme="@style/AppTheme"></activity>
@@ -121,6 +122,17 @@
             android:name="com.facebook.accountkit.ApplicationName"
             android:value="@string/app_name"
             />
+
+        <!--<provider-->
+            <!--android:name="android.support.v4.content.FileProvider"-->
+            <!--android:authorities="com.icall.free.fileprovider"-->
+            <!--android:exported="false"-->
+            <!--android:grantUriPermissions="true">-->
+            <!--...-->
+        <!--</provider>-->
+        <!--<meta-data-->
+            <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+            <!--android:resource="@xml/file_paths" />-->
     </application>
 
 
